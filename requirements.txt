@@ -1,4 +1,6 @@
 flask
 numpy
+flask-cors
+pickle-mixin
 scikit-learn
 gunicorn  
