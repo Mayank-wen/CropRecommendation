@@ -13,6 +13,13 @@ except Exception as e:
     print(f"Error loading model: {e}")
     model = None
 
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({
+        "status": "ok",
+        "message": "Crop Recommendation API is running"
+    })
+
 @app.route("/predict", methods=["POST"])
 def predict():
     if model is None:
@@ -47,5 +54,5 @@ def predict():
         }), 400
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
